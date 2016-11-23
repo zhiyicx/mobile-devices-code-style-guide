@@ -55,7 +55,7 @@
 * [错误处理](#错误处理)
 * [单例模式](#单例模式)
 * [换行符](#换行符)
-* [Xcod工程](#Xcod工程)
+* [XCode工程](#XCode工程)
 * [OOP](#OOP)
 
 
@@ -839,7 +839,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 ```
 
 
-## Xcod工程
+## XCode工程
 
 ### 工程目录
 
@@ -886,6 +886,14 @@ self.productsRequest = [[SKProductsRequest alloc]
 ### 三方库
 
 为了避免冲突,所以建议尽量使用cocoapods来使用和管理三方,同时**不允许**直接修改pod管理的三方库源文件的源代码.
+
+使用 `cocoapods`管理三方库时,必须注明三方库的明确版本号.方便维护.
+
+**例如:**
+
+```shell
+  pod 'Cocoapods', '~> 2.2.0'
+```
 
 ## OOP
 
