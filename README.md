@@ -147,7 +147,7 @@ ViewControl -> VC
 // TODO:
 ```
 
-没有特殊说明,不准随意使用 `#warning` 注释!
+没有特殊说明,**不准**随意使用 `#warning`以及`#pragma message` 和 `#error`!
 
 
 ### 头文件注释
@@ -191,7 +191,7 @@ ViewControl -> VC
 ## 空格与换行
 
 * 缩进使用 4 个空格,确保在 XCode 中进行了设置.
-* 方法大括号和其他大括号(if/else/switch/while 等.)总是在同一行语句打开但在新行中关闭.
+* 方法大括号和其他大括号(`if/else/switch/while` 等.)总是在同一行语句打开但在新行中关闭.
 
 **最佳:**
 
@@ -252,6 +252,12 @@ else {
 一般都避免对私有方法注释,因为代码尽可能做到自解释.
 
 应该避免对每段代码进行注释,只有端出现断断续续的几行代码时才需要注释.
+
+方法注释,属性注释等都必须将注释写在上一行.优先考虑使用`/// 注释` 或者 `/* 注释 */`等兼容 `Xcode` 的注释.
+
+**例如:**
+
+![](./.github/注释.png)
 
 ## 命名
 
@@ -814,7 +820,7 @@ if (error) {
 }
 ```
 
-Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).
+某些`cocoa`框架下的API会在成功的情况下为 `error` 赋垃圾值,因为判断错误可能会导致崩溃(crash).
 
 
 ## 单例模式
@@ -910,6 +916,35 @@ self.productsRequest = [[SKProductsRequest alloc]
 ```shell
   pod 'Cocoapods', '~> 2.2.0'
 ```
+
+### 编译警告
+
+`Clang` 编译器不仅对于明显的错误能够提出警告（比如某方法或者接口未实现）,也能对很多潜在可能的问题做出提示（比如方法已经废弃或者有问题的转换），而这些问题在很多时候都可能成为潜在的致命错误,必须加以重视.
+
+OC由于现在由苹果负责维护,Clang的LLVM也同时是苹果在做,可以说从语言到编译器到SDK全局都在掌握之中,因此做OC开发时的警告往往比其他语言的警告更有参考价值.
+
+整个工程中,除非有特殊说明否则,**不允许**出现5个以上警告!三方库产生的警告计算在内.
+
+在工程中需要开启额外的警告提示!
+
+
+> 在Build Setting中的Other C Flags里添加 `-Wall -Wno-unused-variable` 即可打开一大部分严重警告
+
+
+如果只是想在某几行关闭某个警告的话,可以通过临时改变诊断编译标记来抑制指定类型的警告
+
+**例子:**
+
+```objc
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+
+int a;
+
+#pragma clang diagnostic pop
+```
+
+关于该小节更多的信息可以参考[猫神的博客](https://onevcat.com/2013/05/talk-about-warning/).
 
 ## OOP
 
