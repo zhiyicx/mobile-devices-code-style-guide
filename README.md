@@ -6,7 +6,7 @@
 
 编写该指南的目的是为了保持我们开发过程中代码风格一致,更利于不同的开发人员阅读和维护代码.
 
-该指南设定的目的很多决定都是为了减少屏幕占用空间,易于阅读增加代码的自解释性.
+该指南设定的目的和很多决定都是为了减少屏幕占用空间,易于阅读以及增加代码的自解释性等出发点考虑的.
 
 该指南目前还在修订版本中,会不定期更新维护,以最新发布版本为准.
 
@@ -28,7 +28,7 @@
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
 
-## Table of Contents
+## 目录
 
 * [语言](#语言)
 * [缩写](#缩写)
@@ -75,9 +75,9 @@ UIColor *wodeYanse = [UIColor whiteColor];
 ```
 ## 缩写
 
-当使用缩写时,**必须**使用网络上能轻易查询到的缩写.除非使用统一达成共识的缩写.
+当使用缩写时,**必须**使用网络上能轻易查询到的缩写.除非使用统一达成共识的缩写,或者使用工程名类前缀.
 
-如果视同统一的缩写必须注明在工程的 `README.md` 文件下.
+如果使用统一的缩写必须注明在工程的 `README.md` 文件下.
 
 ```shell
 统一缩写表
@@ -129,6 +129,20 @@ ViewControl -> VC
 // MARK: - NSObject
 
 - (NSString *)description {}
+```
+
+文件的公开部分(.h)遵循以下结构:
+
+```objc
+@interface MyClass : NSObject <
+	Delegate
+>
+
+@property(nonatomic,assign) id obj;
+
+- (void)method;
+
++ (void)classMethod;
 ```
 
 ## 代码注释
