@@ -150,8 +150,10 @@ ViewControl -> VC
 编写注释时使用最新的Xcode 8支持的注释.按照不同的情况分为以下几种
 
 ``` objc
-区分代码段落
+区分主代码段落
 // MARK: - 
+
+区分次要代码段落
 // MARK:
 
 提示修复内容
@@ -184,6 +186,10 @@ ViewControl -> VC
 //  .... ( 详细设计思路 )
 
 ```
+
+修改者只需记录下最近一位修改者.版权一栏必须写上真实的版权所有人.
+
+如果类特别复杂,才需要添加详细的设计思路.
 
 ### 头文件引用
 
@@ -269,6 +275,16 @@ else {
 
 方法注释,属性注释等都必须将注释写在上一行.优先考虑使用`/// 注释` 或者 `/* 注释 */`等兼容 `Xcode` 的注释.
 
+当需要长期注释掉某段代码.必须增加一行详细注释理由和时间.
+
+**例如:**
+
+```objc
+// [长期注释] 注释理由是为了演示给大家看. 2016.11.23
+// [Code user];
+
+```
+
 **例如:**
 
 ![](./.github/注释.png)
@@ -293,7 +309,7 @@ UIButton *setBut;
 
 常量应该使用驼峰式命名规则,所有的单词首字母大写和加上与类名有关的前缀.
 
-四个字符的前缀 `ZYCX` 是可以被使用的.并且应该用在类和常量命名时.
+四个字符的前缀 `ZYCX` 是可以被使用的.并且应该用在类和常量命名时.也可以考虑使用项目名称缩写作为类前缀.
 
 
 **最佳:**
@@ -308,7 +324,7 @@ static NSTimeInterval const ZYCXTutorialViewControllerNavigationFadeAnimationDur
 static NSTimeInterval const fadetime = 1.7;
 ```
 
-属性也是使用驼峰式,但首单词的首字母小写,对属性使用 auto-synthesis 而不是手动编写 @synthesize 语句.
+属性也是使用驼峰式,但首单词的首字母小写,对属性使用 auto-synthesis 而不是手动编写 @synthesize 语句,除非有足够的理由.
 
 **最佳:**
 
@@ -319,20 +335,22 @@ static NSTimeInterval const fadetime = 1.7;
 **不建议:**
 
 ```objc
-id varnm;
+@interface Class : NSObject{
+	NSString *property;
+}
 ```
 
 ### 下划线
 
 当使用属性时,实例变量应该使用 `self.` 来访问和改变.这就意味着所有属性将会视觉效果相同,因为它们前面都有 `self.`.
 
-但有一个特例:在初始化方法里,实例变量(例如,_variableName)应该直接被使用来避免getters/setters潜在的副作用.
+但有一个特例:在初始化方法里,实例变量(例如,`_variableName`)应该直接被使用来避免 `getters/setters` 潜在的副作用.
 
 局部变量不应该包含下划线.
 
 ### 数字
 
-当使用数字时,应尽量避免直接使用数字,而使用常量对数字进行一定的描述.
+当使用数字时,应尽量避免直接使用数字,而使用常量/变量对数字进行一定的描述.
 
 **最佳:**
 
@@ -354,7 +372,7 @@ int a = 360 - 3 * 30;
 
 在方法签名中,应该在方法类型(`-/+` 符号)之后有一个空格.在方法各个段落之间以及运算符号前后应该也有一个空格(符合Apple的风格).在参数之前应该包含一个具有描述性的关键字来描述参数.
 
-`and`这个词的用法应该保留.它不应该用于多个参数来说明,就像 `initWithWidth:height` 以下这个例子：
+`and`这个词的用法应该保留,尽量不要使用.它不应该用于多个参数来说明,就像 `initWithWidth:height` 以下这个例子：
 
 **最佳:**
 ```objc
@@ -383,7 +401,7 @@ int a = 360 - 3 * 30;
 
 尽量使用[私有属性](#私有属性)来替代实例化变量的使用.虽然使用实例化变量也是行之有效的,但是为了代码的一致性,更建议使用[私有属性](#私有属性).
 
-通过使用'back'属性(_variable,变量名前面有下划线)直接访问实例变量应该尽量避免,除了在初始化方法(init, initWithCoder:, 等…),dealloc 方法和自定义的setters和getters.
+通过使用`back`属性(`_variable`,变量名前面有下划线)直接访问实例变量应该尽量避免,除了在初始化方法(init, initWithCoder:, 等…),dealloc 方法和自定义的setters和getters.
 
 **最佳:**
 
@@ -576,7 +594,7 @@ switch (condition) {
 
 ```
 
-当在switch使用枚举类型时,'default'可以删除.
+当在switch使用枚举类型时,`default`可以删除.
 
 ```objc
 ZYCXLeftMenuTopItemType menuType = ZYCXLeftMenuTopItemMain;
@@ -702,7 +720,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 ## 类构造方法
 
-当类构造方法被使用时,它应该返回类型是instancetype而不是id.这样确保编译器正确地推断结果类型.
+当类构造方法被使用时,它应该返回类型是 `instancetype`而不是 `id`.这样确保编译器正确地推断结果类型.
 
 ```objc
 @interface Airplane
@@ -937,7 +955,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 OC由于现在由苹果负责维护,Clang的LLVM也同时是苹果在做,可以说从语言到编译器到SDK全局都在掌握之中,因此做OC开发时的警告往往比其他语言的警告更有参考价值.
 
-整个工程中,除非有特殊说明否则,**不允许**出现5个以上警告!三方库产生的警告计算在内.
+整个工程中,除非有特殊说明否则,**不允许**出现5个以上警告!三方库产生的警告除外.
 
 在工程中需要开启额外的警告提示!
 
