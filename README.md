@@ -171,6 +171,22 @@ ViewControl -> VC
 
 ```
 
+### 头文件引用
+
+类文件中引用的其他文件必须使用 `// MARK: `进行划分.默认首先放控制器,然后依次是视图(View)和模型(Model)工具类(Tools)和三方库.
+
+**例如:**
+
+```objc
+#import "ViewController.h"
+// MARK: Model
+#import "ViewModel.h"
+// MARK: Tools
+#import "ViewTools.h"
+// MARK: Tripartite Library
+#import <AFNetworking/AFNetworking.h>
+
+```
 
 ## 空格与换行
 
