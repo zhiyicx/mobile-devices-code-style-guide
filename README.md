@@ -949,37 +949,7 @@ Xcode 工程拥有2个常用的版本号 `Version`和 `build`.
 
 **例如:**
 
-``` shell
-.
-├── Podfile ( pod 三方包说明 )
-├── Podfile.lock ( pod 版本锁 )
-├── README.md ( 工程说明 )
-├── YiHe ( 主工程 )
-│   ├── AppDelegate.h
-│   ├── AppDelegate.m
-│   ├── Assets.xcassets ( 图片素材 )
-│   ├── Base.lproj ( 启动图目录 )
-│   │   └── LaunchScreen.storyboard
-│   ├── CXFoundation ( 工程基础文件夹 )
-│   │   └── Tools ( 工程基础工具包 )
-│   ├── Category ( 类别 )
-│   ├── Class ( 主要的类 )
-│   │   ├── HomePage ( 功能模块名称 )
-│   │   │   ├── Models ( 功能模块数据文件夹 )
-│   │   │   ├── ViewController.h ( 功能模块控制器 )
-│   │   │   ├── ViewController.m
-│   │   │   └── Views ( 功能模块视图文件夹)
-│   │   └── Public ( 公用的类 )
-│   ├── Info.plist ( 应用配置信息 )
-│   └── main.m ( 系统文件 )
-└── YiHeTests ( 测试文件 )
-          ├── Info.plist ( 应用配置信息 )
-          ├── Info.plist
-          ├── MainTest ( 功能模块测试文件 )
-          │   ├── Units ( 单元测试文件夹 )
-          │   └── Case ( 测试用例 )
-          └── Public ( 公用的测试 )
-```
+![](./.github/DocTree.png)
 
 ### PCH文件
 
