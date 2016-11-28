@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>zycx-headerFile</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>Preprocessor</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// MARK: Model
+#import "&lt;#header#&gt;"
+// MARK: Tools
+#import "&lt;#header#&gt;"
+// MARK: Tripartite Library
+#import &lt;&lt;#header#&gt;&gt;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>361A7673-2A80-4A4E-B759-F219B1EFA518</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>import header file code style.</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Header style</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

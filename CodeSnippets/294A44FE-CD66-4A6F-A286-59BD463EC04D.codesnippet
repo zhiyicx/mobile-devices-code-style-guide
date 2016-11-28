@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>zycx-codeGrouping</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// MARK: - Lifecycle
+
+// MARK: - Custom user interface
+
+// MARK: - Custom accessors
+
+// MARK: - IBActions
+
+// MARK: - Button click
+
+// MARK: - Public
+
+// MARK: - Private
+
+// MARK: - Protocol conformance
+
+// MARK: - Delegate conformance
+
+// MARK: - Observer conformance
+
+// MARK: - NSCopying
+
+// MARK: - NSObject
+
+// MARK: - Other</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>294A44FE-CD66-4A6F-A286-59BD463EC04D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>iphoneos</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>group the code.</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Code grouping</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
