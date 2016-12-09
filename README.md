@@ -37,19 +37,19 @@
 
 ## 执行
 
-本指南所有规范分为`必须严格执行该规范`使用关键字`<span style="color:red">required</span>`标注.`应该使用该规范`使用关键字`<span style="color:green"> optional </span>`标注.
+本指南所有规范分为`必须严格执行该规范`使用关键字`<span style="color:#FF0000">required</span>`标注.`应该使用该规范`使用关键字`<span style="color:#008000">optional</span>`标注.
 
 行政处罚标准
 
 | 规范类型 | 单条规范</br>违反次数 | 处罚金额 | 补充说明 |
 |:----:|----:|----:|:----:|
-| <span style="color:red">required</span> | 1 - 2次 | 5元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
-| <span style="color:red">required</span> | 3 -5次 | 10元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
-| <span style="color:red">required</span> | 5次以上 | 15元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| <span style="color:#FF0000">required</span> | 1 - 2次 | 5元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| <span style="color:#FF0000">required</span> | 3 -5次 | 10元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| <span style="color:#FF0000">required</span> | 5次以上 | 15元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
 |  |  |  |  |
-| <span style="color:green"> optional </span> | 1 - 2次 | 邮件警告 |  |
-| <span style="color:green"> optional </span> | 3 -5次 | 5元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
-| <span style="color:green"> optional </span> | 5次以上 | 10元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| <span style="color:#008000">optional</span> | 1 - 2次 | 邮件警告 |  |
+| <span style="color:#008000">optional</span> | 3 -5次 | 5元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| <span style="color:#008000">optional</span> | 5次以上 | 10元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
 
 **注意:**
 
@@ -90,7 +90,7 @@
 
 ## 语言
 
-##### 规范编号: 1 <span style="color:red">required</span>
+##### 规范编号: 1 <span style="color:#FF0000">required</span>
 
 必须使用英语进行编码,不允许使用中文或者拼音!
 
@@ -98,11 +98,11 @@
 
 ## 缩写
 
-##### 规范编号: 2.1 <span style="color:red">required</span>
+##### 规范编号: 2.1 <span style="color:#FF0000">required</span>
 
 当使用缩写时,**必须**使用网络上能轻易查询到的缩写,或者使用工程名类前缀.
 
-##### 规范编号: 2.2 <span style="color:green"> optional </span>
+##### 规范编号: 2.2 <span style="color:#008000">optional</span>
 
 除非使用统一达成共识的缩写.如果使用统一的缩写必须注明在工程的 `README.md` 文件下.
 
@@ -114,7 +114,7 @@ ViewControl -> VC
 
 ## 代码分组
 
-##### 规范编号: 3 <span style="color:red">required</span>
+##### 规范编号: 3 <span style="color:#FF0000">required</span>
 
 类实现时,必须对类结构分组
 
@@ -206,7 +206,7 @@ public class GoldActivity extends BaseActivity implements GoldView {
     }
 
     // 内部类
-    public class OnPopTabListener implements View.OnClickListener {	
+    public class OnPopTabListener implements View.OnClickListener {
     }
 }
 
@@ -214,11 +214,11 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ## 代码区块注释
 
-##### 规范编号: 4.1 <span style="color:red">required</span>
+##### 规范编号: 4.1 <span style="color:#FF0000">required</span> #DC143C
 
 `iOS`开发者没有特殊说明,**不准**随意使用 `#warning`以及`#pragma message` 和 `#error`!以及
 
-##### 规范编号: 4.2 <span style="color:green"> optional </span>
+##### 规范编号: 4.2 <span style="color:#008000">optional</span>
 
 `iOS`开发者编写注释时使用最新的Xcode 8支持的注释.按照不同的情况分为以下几种
 
@@ -238,11 +238,11 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ### 头文件注释
 
-##### 规范编号: 4.2.1
+##### 规范编号: 4.2.1 <span style="color:#008000">optional</span>
 
 在开发过程中,需要对头文件(安卓称为接口文件)编写必要的注释.
 
-##### 规范编号: 4.2.2 <span style="color:red">required</span>
+##### 规范编号: 4.2.2 <span style="color:#FF0000">required</span>
 
 控制器类和视图类文件公开部分(.h)代码的头文件需要标注注释该类的作用,而文件私有部分(.m)可以不添加详细的注释.
 
@@ -250,7 +250,7 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ### 头文件引用注释
 
-##### 规范编号: 4.3 <span style="color:green"> optional </span>
+##### 规范编号: 4.3 <span style="color:#008000">optional</span>
 
 `ios`开发者类实现文件(.m)中引用的其他文件应该使用 `// MARK: `进行划分.默认首先放控制器(Controller),然后依次是视图(View)和模型(Model)工具类(Tools)和三方库等.
 
@@ -274,11 +274,11 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ### 说明注释
 
-##### 规范编号: 4.4 <span style="color:red">required</span>
+##### 规范编号: 4.4 <span style="color:#FF0000">required</span>
 
 当需要注释时,注释应该用来解释这段特殊代码为什么要这样做.任何被使用的注释都必须保持最新或被删除,不允许保留无效的注释.
 
-##### 规范编号: 4.4.1 <span style="color:green"> optional </span>
+##### 规范编号: 4.4.1 <span style="color:#008000">optional</span>
 
 公开接口必须拥有详细的注释.对接口作出充分的说明.
 
@@ -286,7 +286,7 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 应该避免对每段代码进行注释,只有端出现断断续续的几行代码时才需要注释.
 
-##### 规范编号: 4.5 <span style="color:red">required</span>
+##### 规范编号: 4.5 <span style="color:#FF0000">required</span>
 
 开发过程中,任何代码都应该保证是被使用中,未使用的代码应该被删除.
 
@@ -302,13 +302,13 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ```
 
-##### 规范编号: 4.7 <span style="color:red">required</span>
+##### 规范编号: 4.7 <span style="color:#FF0000">required</span>
 
 `iOS`开发时,方法注释,属性注释等都必须将注释写在上一行,这样可以兼容 `Xcode` 的注释规则,方便调用方法时编辑器可以同步显示注释信息.
 
 ## 空格与换行
 
-##### 规范编号: 5 <span style="color:red">required</span>
+##### 规范编号: 5 <span style="color:#FF0000">required</span>
 
 * 缩进使用 4 个空格
 * 数学运算符左右使用空格进行分隔.
@@ -337,11 +337,11 @@ else {
 }
 ```
 
-##### 规范编号: 5.1 <span style="color:red">required</span>
+##### 规范编号: 5.1 <span style="color:#FF0000">required</span>
 
 在方法之间应该有且只有一行,这样有利于在视觉上更清晰和更易于组织.在方法内的空白部分应该且只以一行换行分离功能,但通常都抽离出来成为一个新方法.
 
-##### 规范编号: 5.2 <span style="color:red">required</span>
+##### 规范编号: 5.2 <span style="color:#FF0000">required</span>
 
 `iOS`开发时:
 * 优先使用 auto-synthesis 但如果有必要 @synthesize 和 @dynamic应该在实现中每个都声明新的一行
@@ -373,11 +373,11 @@ else {
 
 ## 日志
 
-##### 规范编号: 6 <span style="color:red">required</span>
+##### 规范编号: 6 <span style="color:#FF0000">required</span>
 
 `iOS`开发时当需要使用日志输出时(`NSLog(...)`),必须使用统一自定义的日志输出(`ZYLog(...)`),**不允许**直接使用官方的日志输出.因为官方的日志输出信息少,输出格式自由,不方便统一查询问题.
 
-##### 规范编号: 6.1 <span style="color:green"> optional </span>
+##### 规范编号: 6.1 <span style="color:#008000">optional</span>
 
 应该尽量减少使用日志输出,同时**不应该**将其他人分支使用不到的日志输出代码提交到公用的分支上.导致控制台日志信息阅读不便.
 
@@ -385,7 +385,7 @@ else {
 
 ## 命名
 
-##### 规范编号: 7 <span style="color:green"> optional </span>
+##### 规范编号: 7 <span style="color:#008000">optional</span>
 
 编写尽量长的,描述清晰的方法和变量名是最好的做法.
 
@@ -393,7 +393,7 @@ else {
 
 常量是容易重复被使用和无需通过查找和代替就能快速修改值.
 
-##### 规范编号: 7.1 <span style="color:red">required</span>
+##### 规范编号: 7.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发时常量应该使用驼峰式命名规则,所有的单词首字母大写和加上与类名有关的前缀.
 
@@ -424,7 +424,7 @@ public static final int PAY_TYPE_WX = 1;
 public static final int DEFALT_PAGE_NO = 1;
 ```
 
-##### 规范编号: 7.1.1 <span style="color:red">required</span>
+##### 规范编号: 7.1.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发时.常量应该使用 `static` 来声明而不是使用 `#define`.
 
@@ -446,11 +446,11 @@ static CGFloat const ZYCXImageThumbnailHeight = 50.0;
 
 ### 变量
 
-##### 规范编号: 7.2 <span style="color:green"> optional </span>
+##### 规范编号: 7.2 <span style="color:#008000">optional</span>
 
 变量命名时应该尽量具有描述性.除了在 `for()` 循环内,尽量避免单个字母命名.
 
-##### 规范编号: 7.3 <span style="color:green"> optional </span>
+##### 规范编号: 7.3 <span style="color:#008000">optional</span>
 
 变量命名以`LowerCamelCase`风格
 
@@ -474,7 +474,7 @@ static CGFloat const ZYCXImageThumbnailHeight = 50.0;
 
 ### 属性
 
-##### 规范编号: 7.4 <span style="color:red">required</span>
+##### 规范编号: 7.4 <span style="color:#FF0000">required</span>
 
 属性也是使用驼峰式,但首单词的首字母小写,对属性使用 auto-synthesis 而不是手动编写 @synthesize 语句,除非有足够的理由.
 
@@ -492,7 +492,7 @@ static CGFloat const ZYCXImageThumbnailHeight = 50.0;
 }
 ```
 
-##### 规范编号: 7.4.1 <span style="color:red">required</span>
+##### 规范编号: 7.4.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发者开发时,星号表示变量是指针.正常情况下: `NSString *text` 正确,而不是使用 `NSString* text` 或者使用 `NSString * text`.
 
@@ -516,7 +516,7 @@ static CGFloat const ZYCXImageThumbnailHeight = 50.0;
 }
 ```
 
-##### 规范编号: 7.4.2 <span style="color:red">required</span>
+##### 规范编号: 7.4.2 <span style="color:#FF0000">required</span>
 
 `iOS`开发时所有属性特性应该显式地列出来,有助于阅读代码.属性特性的顺序应该是storage、atomicity,与在Interface Builder连接UI元素时自动生成代码一致.
 
@@ -534,7 +534,7 @@ static CGFloat const ZYCXImageThumbnailHeight = 50.0;
 @property (nonatomic) NSString *tutorialName;
 ```
 
-##### 规范编号: 7.4.3 <span style="color:green"> optional </span>
+##### 规范编号: 7.4.3 <span style="color:#008000">optional</span>
 
 NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特性.
 为什么？即使你声明一个NSString的属性,有人可能传入一个NSMutableString的实例,然后在你没有注意的情况下修改它.
@@ -554,7 +554,7 @@ NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特
 
 ### 下划线
 
-##### 规范编号: 7.5 <span style="color:red">required</span>
+##### 规范编号: 7.5 <span style="color:#FF0000">required</span>
 
 `iOS`开发者使用属性时,实例变量应该使用 `self.` 来访问和改变.这就意味着所有属性将会视觉效果相同,因为它们前面都有 `self.`.
 
@@ -562,7 +562,7 @@ NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特
 
 局部变量不应该包含下划线.
 
-##### 规范编号: 7.5.1 <span style="color:red">required</span>
+##### 规范编号: 7.5.1 <span style="color:#FF0000">required</span>
 
 图片资源文件和音频资源文件统一使用下划线命名法.
 
@@ -570,7 +570,7 @@ NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特
 
 ### 数字
 
-####### 规范编号: 7.6 <span style="color:red">required</span>
+##### 规范编号: 7.6 <span style="color:#FF0000">required</span>
 
 当使用数字时,应尽量避免直接使用数字,而使用常量/变量对数字进行一定的描述.
 
@@ -584,6 +584,10 @@ static const int cellWidth = 30;
 static const int screenWidth = 360;
 
 CGFloat cellHeight = screenWidth - cellCount * cellWidth;
+```
+
+```java
+    private static final  int DEFAULT_BOX_COUNT = 30;    private static final  int DEFAULT_BOX_WITH = 100;    private static final  int DEFAULT_BOX_HEIGHT = 100;    private int mBoxWith = DEFAULT_BOX_WITH;      private int mBoxHeight = DEFAULT_BOX_HEIGHT;    private int mBoxLenght = 2 * (mBoxWith + mBoxHeight);
 ```
 
 **不建议:**
@@ -621,7 +625,7 @@ int a = 360 - 3 * 30;
 
 ## 点语法
 
-##### 规范编号: 9 <span style="color:red">required</span>
+##### 规范编号: 9 <span style="color:#FF0000">required</span>
 
 `iOS`开发时,点语法是一种很方便封装访问方法调用的方式.当你使用点语法时,通过使用getter或setter方法,属性仍然被访问或修改.
 
@@ -643,7 +647,7 @@ UIApplication.sharedApplication.delegate;
 
 ## 字面值
 
-##### 规范编号: 10 <span style="color:red">required</span>
+##### 规范编号: 10 <span style="color:#FF0000">required</span>
 
 NSString, NSDictionary, NSArray, 和 NSNumber的字面值应该在创建这些类的不可变实例时被使用.
 
@@ -667,7 +671,7 @@ NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 
 ## 枚举
 
-##### 规范编号: 11 <span style="color:red">required</span>
+##### 规范编号: 11 <span style="color:#FF0000">required</span>
 
 `iOS`开发时当使用enum时,使用新的固定基本类型规格,因为它有更强的类型检查和代码补全.现在 SDK 有一个宏 `NS_ENUM()` 来帮助和鼓励你使用固定的基本类型
 
@@ -692,7 +696,7 @@ typedef NS_ENUM(NSInteger, ZYCXGlobalConstants) {
 };
 ```
 
-##### 规范编号: 11.1.1 <span style="color:red">required</span>
+##### 规范编号: 11.1.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发时除非编写使用 C语言编写 `Core Foundation` 相关框架.否则避免使用旧的枚举方式.
 
@@ -708,7 +712,7 @@ enum GlobalConstants {
 
 ## Case
 
-##### 规范编号: 12 <span style="color:red">required</span>
+##### 规范编号: 12 <span style="color:#FF0000">required</span>
 
 在编写 Case 语句时,除非含有多行代码,否则不建议加上括号.
 
@@ -768,7 +772,7 @@ switch (menuType) {
 
 ## 布尔值
 
-##### 规范编号: 13 <span style="color:red">required</span>
+##### 规范编号: 13 <span style="color:#FF0000">required</span>
 
 `iOS`开发者编写`Objective-C`必须使用 `YES` 和 `NO`.因为 `true` 和 `false` 应该只在 `CoreFoundation`,C 或 C++ 代码使用.
 
@@ -814,7 +818,7 @@ if (isAwesome != true) {} // Never do this.
 
 ## 条件语句
 
-##### 规范编号: 14 <span style="color:red">required</span>
+##### 规范编号: 14 <span style="color:#FF0000">required</span>
 
 条件语句**必须**使用大括号圆,哪怕有的时候不需要大括号(如只编写一行代码的条件语句时).
 
@@ -839,7 +843,7 @@ if (!error) return success;
 
 ### 三目运算符
 
-##### 规范编号: 15 <span style="color:green"> optional </span>
+##### 规范编号: 15 <span style="color:#008000">optional</span>
 
 当需要提高代码的清晰性和简洁性时,三目运算符`? :`才会使用.单个条件求值时,也可以考虑使用它.
 
@@ -863,7 +867,7 @@ result = a > b ? x = c > d ? c : d : y;
 
 ## CGRect
 
-##### 规范编号: 16 <span style="color:red">required</span>
+##### 规范编号: 16 <span style="color:#FF0000">required</span>
 
 `iOS`开发时当访问 CGRect 里的 `x, y, width, height` 时,应该使用CGGeometry函数而不是直接通过结构体来访问.
 
@@ -895,7 +899,7 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 ### 版本号
 
-##### 规范编号: 17 <span style="color:green"> optional </span>
+##### 规范编号: 17 <span style="color:#008000">optional</span>
 
 `Xcode`工程拥有 2 个常用的版本号 `Version`和 `build`.
 
@@ -927,7 +931,7 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 ### 工程目录
 
-##### 规范编号: 17.1 <span style="color:red">required</span>
+##### 规范编号: 17.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发者在工程中物理文件应该与Xcode工程文件保持同步!任何文件都必须按照类型或者功能来进行分组,使代码更佳清晰.
 
@@ -937,19 +941,19 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 ### PCH文件
 
-##### 规范编号: 17.2 <span style="color:red">required</span>
+##### 规范编号: 17.2 <span style="color:#FF0000">required</span>
 
 `iOS`开发工程禁止使用 `.pch`文件,因为会降低编译效率和性能.
 
 ### 三方库
 
-##### 规范编号: 17.3 <span style="color:green"> optional </span>
+##### 规范编号: 17.3 <span style="color:#008000">optional</span>
 
 为了避免冲突,所以建议尽量使用三方包管理工具来使用和管理三方,同时**不允许**直接修改pod管理的三方库源文件的源代码,除非特殊情况.
 
 当因为特殊修改了三方库时,需要将修改的理由和内容标注在`Readme.md`文件中.
 
-##### 规范编号: 17.4 <span style="color:red">required</span>
+##### 规范编号: 17.4 <span style="color:#FF0000">required</span>
 
 `iOS`开发使用 `cocoapods`管理三方库时,必须注明固定的三方库的明确版本号.方便维护.
 
@@ -965,7 +969,7 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 
 OC由于现在由苹果负责维护,Clang的LLVM也同时是苹果在做,可以说从语言到编译器到SDK全局都在掌握之中,因此做OC开发时的警告往往比其他语言的警告更有参考价值.
 
-##### 规范编号: 17.5 <span style="color:red">required</span>
+##### 规范编号: 17.5 <span style="color:#FF0000">required</span>
 
 `iOS`开发者的整个工程中,除非有特殊说明否则,**不允许**出现5个以上警告!三方库产生的警告除外.
 
@@ -973,11 +977,11 @@ OC由于现在由苹果负责维护,Clang的LLVM也同时是苹果在做,可以�
 
 在编写代码的过程中应遵循面向对象设计思路,对代码进解耦.
 
-##### 规范编号: 18 <span style="color:red">required</span>
+##### 规范编号: 18 <span style="color:#FF0000">required</span>
 
 为督促大家采用面向对象编程.控制器中的代码行数不应该超过500行.
 
-##### 规范编号: 18.1 <span style="color:red">required</span>
+##### 规范编号: 18.1 <span style="color:#FF0000">required</span>
 
 每个对象依照复杂程度不同,复杂的类属性成员数量不应该超过10个.简单的类属性成员不应该超过6个.数据模型类编写除外.
 
@@ -985,6 +989,6 @@ OC由于现在由苹果负责维护,Clang的LLVM也同时是苹果在做,可以�
 
 ## commits
 
-##### 规范编号: 19 <span style="color:red">required</span>
+##### 规范编号: 19 <span style="color:#FF0000">required</span>
 
 每天提交的代码`commits`数量必须达到 8 个以上.以当天 20:00前提交到`github`为准.
