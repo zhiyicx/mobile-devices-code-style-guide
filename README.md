@@ -2,9 +2,11 @@
 
 本指南用于简要描述智艺创想约定的移动端代码编写指南.
 
-`iOS`基于 [Apple’s Cocoa Coding Guidelines](https://developer.apple.com) 和 [raywenderlich.com](http://www.raywenderlich.com) 编写.暂时不包含 C++ 和 C 语言相关代码规范.
+`iOS`基于 [Apple’s Cocoa Coding Guidelines](https://developer.apple.com) 和 [raywenderlich.com](http://www.raywenderlich.com) 编写.
 
 `Android`参考[Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)和官方[Android Code Style for Contributors](https://source.android.com/source/code-style.html) 编码风格规范.
+
+暂时不包含 C++, C 语言, xml 以及 JavaScript 相关语法的代码规范.
 
 ## 概述
 
