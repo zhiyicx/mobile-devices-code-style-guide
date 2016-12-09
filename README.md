@@ -1,6 +1,10 @@
-# 智艺创想 Objective-C 代码风格编写指南
+# 智艺创想移动端开发代码风格指南
 
-本指南用于简要描述智艺创想约定的代码编写指南,基于 [Apple’s Cocoa Coding Guidelines](https://developer.apple.com) 和 [raywenderlich.com](http://www.raywenderlich.com) 编写.暂时不包含 C++ 和 C 语言相关代码规范.
+本指南用于简要描述智艺创想约定的移动端代码编写指南.
+
+`iOS`基于 [Apple’s Cocoa Coding Guidelines](https://developer.apple.com) 和 [raywenderlich.com](http://www.raywenderlich.com) 编写.暂时不包含 C++ 和 C 语言相关代码规范.
+
+`Android`参考[Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)和官方[Android Code Style for Contributors](https://source.android.com/source/code-style.html) 编码风格规范.
 
 ## 概述
 
@@ -12,13 +16,15 @@
 
 ## 作者
 
-该指南由[lipyoung](https://github.com/LipYoung)编写.[smelloftime](https://github.com/smelloftime)共同修订.
+该指南由[lipyoung](https://github.com/LipYoung)编写.
+
+[smelloftime](https://github.com/smelloftime)和[Jungle68](https://github.com/Jungle68)共同修订.
 
 特别感谢 [raywenderlich.com](http://www.raywenderlich.com).
 
 ## 补充
 
-以下是苹果官方文档编码指南.如果对于本编码规范有任何不全面或者争议的部分,可以在 Xcode 的官方文档中搜索 ` Coding Guidelines for Cocoa` 进行查阅.
+针对`iOS`开发者以下是苹果官方文档编码指南.如果对于本编码规范有任何不全面或者争议的部分,可以在 Xcode 的官方文档中搜索 ` Coding Guidelines for Cocoa` 进行查阅.
 
 或者你也可以查阅以下在线文档:
 
@@ -27,17 +33,47 @@
 * [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
 * [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
 
+针对`Android`开发者,基本的格式方面使用`AndroidStudio`默认模板即可（使用格式化快捷键`(ctrl+alt+L/commond+alt+L)`、`Eclipes(ctrl+shift+F)`处理.
+
+## 执行
+
+本指南所有规范分为`必须严格执行该规范`使用关键字`required`标注.`应该使用该规范`使用关键字`optional`标注.
+
+行政处罚标准
+
+| 规范类型 | 单条规范违反次数 | 处罚金额 | 补充说明 |
+|:----:|:----:|:----:|:----:|
+| required | 1 - 3次 | 2元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| required | 4 -6次 | 5元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| required | 6次以上 | 10元人民币 | 连续多天违反同一条规范,处罚金额在前一天的基础上增量叠加 |
+| optional | 1 - 2次 | 邮件警告 |  |
+| optional | 3 -5次 | 2元人民币 |  |
+| optional | 5次以上 | 5元人民币 |  |
+
+**注意:**
+
+所有行政处罚邮件,统一提交行政和财务,月底工资结清时扣除.扣除资金作为公司开发人员活动经费.
+
+`连续多天违反同一条规范,触发金额在前一天的基础上增量叠加`指的是:
+
+10月1号因为违反了编号 1的规范罚款 10元后.10月2号又因违反了编号 1的规范处罚 10元的情况时.10月2号因为编号 1的规范导致的实际的罚款金额为 20元.
 
 ## 目录
 
 * [语言](#语言)
 * [缩写](#缩写)
 * [代码分组](#代码分组)
-* [代码注释](#代码注释)
+* [代码区块注释](#代码区块注释)
+	* [头文件注释](##头文件注释)
+	* [头文件引用注释](##头文件引用注释)
+	* [说明注释](#说明注释)
 * [空格与换行](#空格与换行)
 * [日志](#日志)
-* [注释](#注释)
 * [命名](#命名)
+	* [常量](##常量)
+	* [变量](##变量)
+	* [属性](##属性)
+	* [数字](##数字)
 * [方法](#方法)
 * [变量](#变量)
 * [属性特征](#属性特征)
@@ -49,51 +85,45 @@
 * [私有属性](#私有属性)
 * [布尔值](#布尔值)
 * [条件语句](#条件语句)
-* [初始化](#初始化)
 * [类构造方法](#类构造方法)
 * [CGRect](#CGRect)
-* [最佳路径(该条不做硬性要求，建议采用该方式书写)](#最佳路径(该条不做硬性要求，建议采用该方式书写))
-* [错误处理](#错误处理)
-* [单例模式](#单例模式)
 * [XCode工程](#XCode工程)
 * [OOP](#OOP)
 
-
 ## 语言
 
-必须使用英语进行编码!注释可以使用中文.
+##### 规范编号: 1 required
 
-**最佳:**
-```objc
-// This is sample code.
-UIColor *myColor = [UIColor whiteColor];
-```
+必须使用英语进行编码,不允许使用中文或者拼音!
 
-**不建议:**
-```objc
-UIColor *wodeYanse = [UIColor whiteColor];
-```
+注释可以使用中文.
+
 ## 缩写
 
-当使用缩写时,**必须**使用网络上能轻易查询到的缩写.除非使用统一达成共识的缩写,或者使用工程名类前缀.
+##### 规范编号: 2.1 required
 
-如果使用统一的缩写必须注明在工程的 `README.md` 文件下.
+当使用缩写时,**必须**使用网络上能轻易查询到的缩写,或者使用工程名类前缀.
+
+##### 规范编号: 2.2 optional
+
+除非使用统一达成共识的缩写.如果使用统一的缩写必须注明在工程的 `README.md` 文件下.
 
 ```shell
-统一缩写表
+## 统一缩写表
 
 ViewControl -> VC
 ```
 
-
 ## 代码分组
 
-使用 `// MARK: - ` 来对代码进行分组.遵循以下结构:
+##### 规范编号: 3 required
+
+类实现时,类结构分组:
+
+`iOS`开发者使用 `// MARK: - ` 来对代码进行分组.遵循以下结构:
 
 ```objc
-
 // MARK: - Lifecycle
-
 - (instancetype)init {}
 - (void)dealloc {}
 - (void)viewDidLoad {}
@@ -101,33 +131,28 @@ ViewControl -> VC
 - (void)didReceiveMemoryWarning {}
 
 // MARK: - Custom Accessors
-
 - (void)setCustomProperty:(id)value {}
 - (id)customProperty {}
 
 // MARK: - IBActions
-
 - (IBAction)submitData:(id)sender {}
 
 // MARK: - Public
-
 - (void)publicMethod {}
 
 // MARK: - Private
-
 - (void)privateMethod {}
 
 // MARK: - Protocol conformance
 // MARK: - UITextFieldDelegate
 // MARK: - UITableViewDataSource
 // MARK: - UITableViewDelegate
+// MARK: - NSNotification
 
 // MARK: - NSCopying
-
 - (id)copyWithZone:(NSZone *)zone {}
 
 // MARK: - NSObject
-
 - (NSString *)description {}
 ```
 
@@ -145,9 +170,21 @@ ViewControl -> VC
 + (void)classMethod;
 ```
 
-## 代码注释
+`Android`开发者遵循以下结构:
 
-编写注释时使用最新的Xcode 8支持的注释.按照不同的情况分为以下几种
+```java
+
+```
+
+## 代码区块注释
+
+##### 规范编号: 4.1 required
+
+没有特殊说明,**不准**随意使用 `#warning`以及`#pragma message` 和 `#error`!以及
+
+##### 规范编号: 4.2 optional
+
+`iOS`开发者编写注释时使用最新的Xcode 8支持的注释.按照不同的情况分为以下几种
 
 ``` objc
 区分主代码段落
@@ -163,12 +200,13 @@ ViewControl -> VC
 // TODO:
 ```
 
-没有特殊说明,**不准**随意使用 `#warning`以及`#pragma message` 和 `#error`!
-
-
 ### 头文件注释
 
-文件公开部分(.h)代码的头文件需要详细的注释,而文件私有部分(.m)可以不添加详细的注释.
+在开发过程中,需要对头文件(安卓称为接口文件)编写必要的注释.
+
+##### 规范编号: 4.2 required
+
+`iOS`开发者控制器文件公开部分(.h)代码的头文件需要详细的注释,而文件私有部分(.m)可以不添加详细的注释.
 
 **例如:**
 
@@ -187,14 +225,19 @@ ViewControl -> VC
 
 如果类特别复杂,才需要添加详细的设计思路.
 
-### 头文件引用
+### 头文件引用注释
 
-类文件中引用的其他文件必须使用 `// MARK: `进行划分.默认首先放控制器,然后依次是视图(View)和模型(Model)工具类(Tools)和三方库.
+##### 规范编号: 4.3 optional
+
+`ios`开发者类实现文件(.m)中引用的其他文件应该使用 `// MARK: `进行划分.默认首先放控制器(Controller),然后依次是视图(View)和模型(Model)工具类(Tools)和三方库等.
 
 **例如:**
 
 ```objc
+// MARK: Controller
 #import "ViewController.h"
+// MARK: View
+#import "TestTableViewCell.h"
 // MARK: Model
 #import "ViewModel.h"
 // MARK: Tools
@@ -204,10 +247,53 @@ ViewControl -> VC
 
 ```
 
+### 说明注释
+
+当需要注释时,注释应该用来解释这段特殊代码为什么要这样做.任何被使用的注释都必须保持最新或被删除.
+
+##### 规范编号: 4.4 optional
+
+公开接口必须拥有详细的注释.对接口作出充分的说明.
+
+一般都避免对私有方法注释,因为代码尽可能做到自解释.
+
+应该避免对每段代码进行注释,只有端出现断断续续的几行代码时才需要注释.
+
+##### 规范编号: 4.5 required
+
+当需要长期注释掉某段代码.必须增加一行详细注释理由和时间.
+
+长期注释统一格式是 `// [注释说明] 注释理由 时间`.
+
+**例如:**
+
+```objc
+// [长期注释] 注释理由是为了演示给大家看. 2016.11.23
+// [Code user];
+
+```
+##### 规范编号: 4.6 required
+
+为了方便搜索同类注释,需要将`[注释说明]`添加到 readme 文件内.
+
+**例如:**
+
+| 注释名称 | 注释说明 |
+|:----:|:----:|
+| [长期注释] | 注释理由是为了演示给大家看 |
+| [甲方要求] | 甲方要求暂时屏蔽掉该功能 |
+| [正在开发] | 该功能还在开发中所以暂时注释掉,下周内会完成 |
+
+##### 规范编号: 4.7 optional
+
+方法注释,属性注释等都必须将注释写在上一行.优先考虑使用`/// 注释` ,`///< 枚举注释` 或者 `/* 注释 */`等兼容 `Xcode` 的注释.
+
 ## 空格与换行
 
-* 缩进使用 4 个空格,确保在 XCode 中进行了设置.
-* 方法大括号和其他大括号(`if/else/switch/while` 等.)总是在同一行语句打开但在新行中关闭.
+##### 规范编号: 5 required
+
+* 缩进使用 4 个空格
+* 方法大括号和其他大括号(`if/else/switch/while` 等.)总是在同一行语句打开但在新行中关闭,即使只有一条语句(或是空)，也应该把大括号写上
 
 **最佳:**
 
@@ -231,7 +317,12 @@ else {
 }
 ```
 
-* 在方法之间应该有且只有一行,这样有利于在视觉上更清晰和更易于组织.在方法内的空白部分应该且只以一行换行分离功能,但通常都抽离出来成为一个新方法.
+##### 规范编号: 5.1 required
+
+在方法之间应该有且只有一行,这样有利于在视觉上更清晰和更易于组织.在方法内的空白部分应该且只以一行换行分离功能,但通常都抽离出来成为一个新方法.
+
+##### 规范编号: 5.2 required
+
 * 优先使用 auto-synthesis 但如果有必要 @synthesize 和 @dynamic应该在实现中每个都声明新的一行
 * 应该避免以冒号对齐的方式来调用方法,虽然有时方法签名可能有3个以上的冒号和冒号对齐会使代码更加易读,但是 Xcode 的对齐方式令代码块难以辨认,所以**不允许**这样做.
 
@@ -261,54 +352,19 @@ else {
 
 ## 日志
 
+##### 规范编号: 6 required
+
 当需要使用日志输出时(`NSLog(...)`),必须使用统一自定义的日志输出(`ZYLog(...)`),**不允许**直接使用官方的日志输出.因为官方的日志输出信息少,输出格式自由,不方便统一查询问题.
+
+##### 规范编号: 6.1 optional
 
 应该尽量减少使用日志输出,同时**不应该**将其他人分支使用不到的日志输出代码提交到公用的分支上.导致控制台日志信息阅读不便.
 
 开发过程其他类似于日志输出这样仅仅作为临时使用的代码,都**不允许**提交到公用的分支上.
 
-## 注释
-
-当需要注释时,注释应该用来解释这段特殊代码为什么要这样做.任何被使用的注释都必须保持最新或被删除.
-
-接口必须拥有详细的注释.对接口作出充分的说明.
-
-一般都避免对私有方法注释,因为代码尽可能做到自解释.
-
-应该避免对每段代码进行注释,只有端出现断断续续的几行代码时才需要注释.
-
-当需要长期注释掉某段代码.必须增加一行详细注释理由和时间.
-
-长期注释统一格式是 `// [注释说明] 注释理由 时间`.
-
-**例如:**
-
-```objc
-// [长期注释] 注释理由是为了演示给大家看. 2016.11.23
-// [Code user];
-
-```
-
-为了方便搜索同类注释,需要将`[注释说明]`添加到 readme 文件内.
-
-**例如:**
-
-| 注释名称 | 注释说明 |
-|:----:|:----:|
-| [长期注释] | 注释理由是为了演示给大家看 |
-| [甲方要求] | 甲方要求暂时屏蔽掉该功能 |
-| [正在开发] | 该功能还在开发中所以暂时注释掉,下周内会完成 |
-
-
-方法注释,属性注释等都必须将注释写在上一行.优先考虑使用`/// 注释` ,`///< 枚举注释` 或者 `/* 注释 */`等兼容 `Xcode` 的注释.
-
-**例如:**
-
-![](./.github/注释.png)
-
 ## 命名
 
-该部分内容取自 [Apple’s Cocoa Coding Guidelines](https://developer.apple.com).可在 Xcode 的官方文档中搜索 ` Coding Guidelines for Cocoa` 进行扩展阅读.
+##### 规范编号: 7 optional
 
 编写尽量长的,描述清晰的方法和变量名是最好的做法.
 
@@ -323,11 +379,15 @@ UIButton *settingsButton;
 ```objc
 UIButton *setBut;
 ```
+### 常量
+
+常量是容易重复被使用和无需通过查找和代替就能快速修改值.
+
+##### 规范编号: 7.1 required
 
 常量应该使用驼峰式命名规则,所有的单词首字母大写和加上与类名有关的前缀.
 
 四个字符的前缀 `ZYCX` 是可以被使用的.并且应该用在类和常量命名时.也可以考虑使用项目名称缩写作为类前缀.
-
 
 **最佳:**
 
@@ -335,11 +395,119 @@ UIButton *setBut;
 static NSTimeInterval const ZYCXTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
+```java
+public static final int ZYCXPayTypeAlipay = 0;
+public static final int ZYCXPayTypeWechat = 1;
+```
+
 **不建议:**
 
 ```objc
 static NSTimeInterval const fadetime = 1.7;
 ```
+
+```java
+public static final int PAY_TYPE_ALIPAY = 0;
+public static final int PAY_TYPE_WX = 1;
+```
+##### 规范编号: 7.1.1 required
+
+`iOS`开发时.常量应该使用 `static` 来声明而不是使用 `#define`.
+
+**最佳:**
+
+```objc
+static NSString * const ZYCXAboutViewControllerCompanyName = @"RayWenderlich.com";
+
+static CGFloat const ZYCXImageThumbnailHeight = 50.0;
+```
+
+**不建议:**
+
+```objc
+#define CompanyName @"RayWenderlich.com"
+
+#define thumbnailHeight 2
+```
+
+### 变量
+
+##### 规范编号: 7.2 optional
+
+变量命名时应该尽量具有描述性.除了在 `for()` 循环内,尽量避免单个字母命名.
+
+##### 规范编号: 7.3 optional
+
+变量命名以`LowerCamelCase`风格，并按照以下形式进行:
+
+1. 基本结构为 `scopeVariableNameType scope`
+2. 非公有，非静态字段命名以`m`开头
+3. 公有非静态字段命名以`p`开头
+4. 静态字段命名以`s`开头
+5. 公有静态字段（全局变量）命名以`g`开头
+
+##### 规范编号: 7.3.1 required
+
+`iOS`开发者开发时,星号表示变量是指针.正常情况下: `NSString *text` 正确,而不是使用 `NSString* text` 或者使用 `NSString * text`.
+
+通过使用`back`属性(`_variable`,变量名前面有下划线)直接访问实例变量应该尽量避免,除了在初始化方法(init, initWithCoder:, 等…),dealloc 方法和自定义的setters和getters.
+
+**最佳:**
+
+```objc
+@interface ZYCXTutorial : NSObject
+
+@property (strong, nonatomic) NSString *tutorialName;
+
+@end
+```
+
+**不建议:**
+
+```objc
+@interface ZYCXTutorial : NSObject {
+  NSString *tutorialName;
+}
+```
+
+##### 规范编号: 7.3.2 required
+
+`iOS`开发时所有属性特性应该显式地列出来,有助于阅读代码.属性特性的顺序应该是storage、atomicity,与在Interface Builder连接UI元素时自动生成代码一致.
+
+**最佳:**
+
+```objc
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (strong, nonatomic) NSString *tutorialName;
+```
+
+**不建议:**
+
+```objc
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic) NSString *tutorialName;
+```
+
+##### 规范编号: 7.3.3 optional
+
+NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特性.
+为什么？即使你声明一个NSString的属性,有人可能传入一个NSMutableString的实例,然后在你没有注意的情况下修改它.
+
+**最佳:**
+
+```objc
+@property (copy, nonatomic) NSString *tutorialName;
+```
+
+**不建议:**
+
+```objc
+@property (strong, nonatomic) NSString *tutorialName;
+```
+
+### 属性
+
+##### 规范编号: 7.4 required
 
 属性也是使用驼峰式,但首单词的首字母小写,对属性使用 auto-synthesis 而不是手动编写 @synthesize 语句,除非有足够的理由.
 
@@ -359,7 +527,9 @@ static NSTimeInterval const fadetime = 1.7;
 
 ### 下划线
 
-当使用属性时,实例变量应该使用 `self.` 来访问和改变.这就意味着所有属性将会视觉效果相同,因为它们前面都有 `self.`.
+##### 规范编号: 7.5 required
+
+`iOS`开发者使用属性时,实例变量应该使用 `self.` 来访问和改变.这就意味着所有属性将会视觉效果相同,因为它们前面都有 `self.`.
 
 但有一个特例:在初始化方法里,实例变量(例如,`_variableName`)应该直接被使用来避免 `getters/setters` 潜在的副作用.
 
@@ -367,9 +537,11 @@ static NSTimeInterval const fadetime = 1.7;
 
 ### 数字
 
+####### 规范编号: 7.6 required
+
 当使用数字时,应尽量避免直接使用数字,而使用常量/变量对数字进行一定的描述.
 
-UI出效果图必须给定一套通用的UI间隔规范.
+在实际开发中,应该让设计师设计`UI`效果图时必须给定一套通用的UI间隔规范.
 
 **最佳:**
 
@@ -389,7 +561,9 @@ int a = 360 - 3 * 30;
 
 ## 方法
 
-在方法签名中,应该在方法类型(`-/+` 符号)之后有一个空格.在方法各个段落之间以及运算符号前后应该也有一个空格(符合Apple的风格).在参数之前应该包含一个具有描述性的关键字来描述参数.
+##### 规范编号: 8
+
+`iOS`开发者在方法签名中,应该在方法类型(`-/+` 符号)之后有一个空格.在方法各个段落之间以及运算符号前后应该也有一个空格(符合Apple的风格).在参数之前应该包含一个具有描述性的关键字来描述参数.
 
 `and`这个词的用法应该保留,尽量不要使用.它不应该用于多个参数来说明,就像 `initWithWidth:height` 以下这个例子：
 
@@ -412,71 +586,11 @@ int a = 360 - 3 * 30;
 - (instancetype)init:(int)width :(int)height;  // 决定允许这样写!
 ```
 
-## 变量
-
-变量命名时应该尽量具有描述性.除了在 `for()` 循环内,尽量避免单个字母命名.
-
-星号表示变量是指针.正常情况下: `NSString *text` 正确,而不是使用 `NSString* text` 或者使用 `NSString * text`.
-
-尽量使用[私有属性](#私有属性)来替代实例化变量的使用.虽然使用实例化变量也是行之有效的,但是为了代码的一致性,更建议使用[私有属性](#私有属性).
-
-通过使用`back`属性(`_variable`,变量名前面有下划线)直接访问实例变量应该尽量避免,除了在初始化方法(init, initWithCoder:, 等…),dealloc 方法和自定义的setters和getters.
-
-**最佳:**
-
-```objc
-@interface ZYCXTutorial : NSObject
-
-@property (strong, nonatomic) NSString *tutorialName;
-
-@end
-```
-
-**不建议:**
-
-```objc
-@interface ZYCXTutorial : NSObject {
-  NSString *tutorialName;
-}
-```
-
-
-## 属性特征
-
-所有属性特性应该显式地列出来,有助于阅读代码.属性特性的顺序应该是storage、atomicity,与在Interface Builder连接UI元素时自动生成代码一致.
-
-**最佳:**
-
-```objc
-@property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (strong, nonatomic) NSString *tutorialName;
-```
-
-**不建议:**
-
-```objc
-@property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic) NSString *tutorialName;
-```
-
-NSString等拥有可变子类的类应该使用copy 而不是 strong的属性特性.
-为什么？即使你声明一个NSString的属性,有人可能传入一个NSMutableString的实例,然后在你没有注意的情况下修改它.
-
-**最佳:**
-
-```objc
-@property (copy, nonatomic) NSString *tutorialName;
-```
-
-**不建议:**
-
-```objc
-@property (strong, nonatomic) NSString *tutorialName;
-```
-
 ## 点语法
 
-点语法是一种很方便封装访问方法调用的方式.当你使用点语法时,通过使用getter或setter方法,属性仍然被访问或修改.
+##### 规范编号: 9 required
+
+`iOS`开发时,点语法是一种很方便封装访问方法调用的方式.当你使用点语法时,通过使用getter或setter方法,属性仍然被访问或修改.
 
 为了代码的统一和简洁,在修改和访问属性时,除非有充值的理由否则**必须**使用点语法.`[]`符号更偏向于用在其他地方
 
@@ -495,6 +609,8 @@ UIApplication.sharedApplication.delegate;
 ```
 
 ## 字面值
+
+##### 规范编号: 10 required
 
 NSString, NSDictionary, NSArray, 和 NSNumber的字面值应该在创建这些类的不可变实例时被使用.
 
@@ -516,29 +632,11 @@ NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
 NSNumber *buildingStreetNumber = [NSNumber numberWithInteger:10018];
 ```
 
-## 常量
-
-常量是容易重复被使用和无需通过查找和代替就能快速修改值.常量应该使用 `static` 来声明而不是使用 `#define`.
-
-**最佳:**
-
-```objc
-static NSString * const ZYCXAboutViewControllerCompanyName = @"RayWenderlich.com";
-
-static CGFloat const ZYCXImageThumbnailHeight = 50.0;
-```
-
-**不建议:**
-
-```objc
-#define CompanyName @"RayWenderlich.com"
-
-#define thumbnailHeight 2
-```
-
 ## 枚举
 
-当使用enum时,使用新的固定基本类型规格,因为它有更强的类型检查和代码补全.现在 SDK 有一个宏 `NS_ENUM()` 来帮助和鼓励你使用固定的基本类型
+##### 规范编号: 11 required
+
+`iOS`开发时当使用enum时,使用新的固定基本类型规格,因为它有更强的类型检查和代码补全.现在 SDK 有一个宏 `NS_ENUM()` 来帮助和鼓励你使用固定的基本类型
 
 **例如:**
 
@@ -561,7 +659,9 @@ typedef NS_ENUM(NSInteger, ZYCXGlobalConstants) {
 };
 ```
 
-除非编写使用 C语言编写 `Core Foundation` 相关框架.否则避免使用旧的枚举方式.
+##### 规范编号: 11.1.1 required
+
+`iOS`开发时除非编写使用 C语言编写 `Core Foundation` 相关框架.否则避免使用旧的枚举方式.
 
 **不建议:**
 
@@ -634,7 +734,7 @@ switch (menuType) {
 
 ## 私有属性
 
-私有属性应该在实现文件(.m)的类扩展中声明.命名时不需要增加类似 `private`的关键字.
+`iOS`开发时私有属性应该在实现文件(.m)的类扩展中声明.命名时不需要增加类似 `private`的关键字.
 
 **例如:**
 
@@ -722,32 +822,6 @@ result = isHorizontal ? x : y;
 result = a > b ? x = c > d ? c : d : y;
 ```
 
-## 初始化
-
-初始化必须按照官方的代码模板.
-
-```objc
-- (instancetype)init {
-  self = [super init];
-  if (self) {
-    // ...
-  }
-  return self;
-}
-```
-
-
-## 类构造方法
-
-当类构造方法被使用时,它应该返回类型是 `instancetype`而不是 `id`.这样确保编译器正确地推断结果类型.
-
-```objc
-@interface Airplane
-+ (instancetype)airplaneWithType:(ZYCXAirplaneType)type;
-@end
-```
-
-
 ## CGRect
 
 当访问 CGRect 里的 `x, y, width, height` 时,应该使用CGGeometry函数而不是直接通过结构体来访问.
@@ -775,124 +849,6 @@ CGFloat width = frame.size.width;
 CGFloat height = frame.size.height;
 CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 ```
-
-## 最佳路径(该条不做硬性要求，建议采用该方式书写)
-
-当使用条件语句编码时,正确逻辑处理的代码写在左侧,也就是说永远**避免**编写嵌套的 `if` 语句.当有多个条件判断语句时,也是如此
-
-**最佳:**
-
-```objc
-- (void)someMethod {
-  if (![someOther boolValue]) {
-	return;
-  }
-
-  //Do something important
-}
-```
-
-**不建议:**
-
-```objc
-- (void)someMethod {
-  if ([someOther boolValue]) {
-    //Do something important
-  }
-}
-```
-
-**例如:**
-
-```swift
-if let object1= optional1 {
-  // do something with object1 here
-  if let object2 = optional2 {
-     if let object3 = optional3 {
-       // do something with objects 1,2,3
-     }
-   }
-}
-
-// 转换为
-
-if let object1 = optional1 && object2 = optional2 {
-}
-
-```
-
-**例如:**
-
-```swift
-
-if let object1= optional1 {
-  if let object2 = optional2 {
-     if let object3 = optional3 {
-        // important code is nested deep inside here...
-     }
-   }
-} else {
-  // handle missing values
-}
-
-// 转换为
-
-if optional1 == nil || optional2 == nil || optional3 == nil {
-  // handle missing values
-  return;
-}
-
-let object1 = optional1!
-let object2 = optional2!
-let object3 = optional3!
-
-// important code is aligned with the left
-
-```
-
-## 错误处理
-
-当方法通过引用来返回一个错误参数,判断返回值而不是错误变量.
-
-**最佳:**
-```objc
-NSError *error;
-if (![self trySomethingWithError:&error]) {
-  // Handle Error
-}
-```
-
-**不建议:**
-```objc
-NSError *error;
-[self trySomethingWithError:&error];
-if (error) {
-  // Handle Error
-}
-```
-
-某些`cocoa`框架下的API会在成功的情况下为 `error` 赋垃圾值,因为判断错误可能会导致崩溃(crash).
-
-
-## 单例模式
-
-单例对象应该使用线程安全模式来创建共享实例.
-
-```objc
-+ (instancetype)sharedInstance {
-  static id sharedInstance = nil;
-
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    sharedInstance = [[self alloc] init];
-  });
-
-  return sharedInstance;
-}
-```
-
-这可以防止某些崩溃.
-
 
 ## XCode工程
 
@@ -932,7 +888,7 @@ Xcode 工程拥有2个常用的版本号 `Version`和 `build`.
 
 ### PCH文件
 
-工程禁止使用 `.pch`文件,因为会降低编译效率和性能.
+`iOS`开发工程禁止使用 `.pch`文件,因为会降低编译效率和性能.
 
 ### 三方库
 
@@ -945,6 +901,8 @@ Xcode 工程拥有2个常用的版本号 `Version`和 `build`.
 ```shell
   pod 'Cocoapods', '2.2.0'
 ```
+
+当因为特殊修改了三方库时,需要将修改的理由和内容标注在`Readme.md`文件中.
 
 ### 编译警告
 
