@@ -12,7 +12,7 @@
 
 编写该指南的目的是为了保持我们开发过程中代码风格一致,更利于不同的开发人员阅读和维护代码.
 
-该指南设定的目的和很多决定都是为了减少屏幕占用空间,易于阅读以及增加代码的自解释性等出发点考虑的.
+该指南设定的目的和很多决定都是为了**减少屏幕占用空间**,易于阅读以及增加代码的自解释性等出发点考虑的.
 
 该指南目前还在修订版本中,会不定期更新维护,以最新发布版本为准.
 
@@ -216,7 +216,7 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 ## 代码区块注释
 
-##### 规范编号: 4.1 <span style="color:#FF0000">required</span> #DC143C
+##### 规范编号: 4.1 <span style="color:#FF0000">required</span>
 
 `iOS`开发者没有特殊说明,**不准**随意使用 `#warning`以及`#pragma message` 和 `#error`!以及
 
@@ -314,6 +314,7 @@ public class GoldActivity extends BaseActivity implements GoldView {
 
 * 缩进使用 4 个空格
 * 数学运算符左右使用空格进行分隔.
+* 注释中英文混编以及数字混编时,均空一格进行分隔.
 * 方法调用传入参数时,统一在后一个参数前增加一个空格进行分隔.
 * 方法大括号和其他大括号(`if/else/switch/while` 等.)总是在同一行语句打开但在新行中关闭,即使只有一条语句(或是空)，也应该把大括号写上.
 
@@ -381,9 +382,9 @@ else {
 
 ##### 规范编号: 6.1 <span style="color:#008000">optional</span>
 
-应该尽量减少使用日志输出,同时**不应该**将其他人分支使用不到的日志输出代码提交到公用的分支上.导致控制台日志信息阅读不便.
+`iOS`开发时应该尽量减少使用日志输出,同时**不应该**将其他人分支使用不到的日志输出代码提交到公用的分支上.导致控制台日志信息阅读不便.
 
-开发过程其他类似于日志输出这样仅仅作为临时使用的代码,都**不允许**提交到公用的分支上.
+`iOS`开发过程其他类似于日志输出这样仅仅作为临时使用的代码,都**不允许**提交到公用的分支上.
 
 ## 命名
 
@@ -589,7 +590,15 @@ CGFloat cellHeight = screenWidth - cellCount * cellWidth;
 ```
 
 ```java
-    private static final  int DEFAULT_BOX_COUNT = 30;    private static final  int DEFAULT_BOX_WITH = 100;    private static final  int DEFAULT_BOX_HEIGHT = 100;    private int mBoxWith = DEFAULT_BOX_WITH;      private int mBoxHeight = DEFAULT_BOX_HEIGHT;    private int mBoxLenght = 2 * (mBoxWith + mBoxHeight);
+    private static final  int DEFAULT_BOX_COUNT = 30;
+    private static final  int DEFAULT_BOX_WITH = 100;
+    private static final  int DEFAULT_BOX_HEIGHT = 100;
+
+    private int mBoxWith = DEFAULT_BOX_WITH;  
+
+    private int mBoxHeight = DEFAULT_BOX_HEIGHT;
+
+    private int mBoxLenght = DEFAULT_BOX_HEIGHT * (mBoxWith + mBoxHeight);
 ```
 
 **不建议:**
@@ -607,6 +616,7 @@ int a = 360 - 3 * 30;
 `and`这个词的用法应该保留,尽量不要使用.它不应该用于多个参数来说明,就像 `initWithWidth:height` 以下这个例子：
 
 **最佳:**
+
 ```objc
 - (void)setExampleText:(NSString *)text image:(UIImage *)image;
 - (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;
@@ -634,6 +644,7 @@ int a = 360 - 3 * 30;
 为了代码的统一和简洁,在修改和访问属性时,除非有充值的理由否则**必须**使用点语法.`[]`符号更偏向于用在其他地方
 
 **最佳:**
+
 ```objc
 NSInteger arrayCount = [self.array count];
 view.backgroundColor = [UIColor orangeColor];
@@ -641,6 +652,7 @@ view.backgroundColor = [UIColor orangeColor];
 ```
 
 **不建议:**
+
 ```objc
 NSInteger arrayCount = self.array.count;
 [view setBackgroundColor:[UIColor orangeColor]];
@@ -919,7 +931,7 @@ CGRect frame = (CGRect){ .origin = CGPointZero, .size = frame.size };
 	
 `build`和`versionCode`记录发布次数.
 
-发布次数指的是每次提交到`fir.im`或者`pgyer.com`上之前需要对该数字加1.这样可以方便测试和开发人员沟通和审查代码.发布次数只能使用正整数,且不能以0开头.
+发布次数指的是每次提交到`fir.im`或者`pgyer.com`上之前需要对该数字加 1.这样可以方便测试和开发人员沟通和审查代码.发布次数只能使用正整数,且不能以0开头.
 
 **例如:**
 
